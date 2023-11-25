@@ -1,18 +1,32 @@
 import React, { FC } from 'react';
-import { View, Text, Image } from 'react-native';
+import { Text, Image, Pressable } from 'react-native';
 import styles from './imageOption.styles';
 
 interface ImageOptionsInterface {
   imageUri: string;
   textOption: string;
+  isSelected?: boolean;
+  setSelectedOption: (optionId: string) => void;
 }
 
-const ImageOption: FC<ImageOptionsInterface> = ({ imageUri, textOption }) => {
+const ImageOption: FC<ImageOptionsInterface> = ({
+  imageUri,
+  textOption,
+  isSelected = false,
+  setSelectedOption
+}) => {
   return (
-    <View style={styles.optionContainer}>
+    <Pressable
+      onPress={setSelectedOption}
+      style={[
+        styles.optionContainer,
+        isSelected ? styles.selectedContainer : {}
+      ]}>
       <Image source={{ uri: imageUri }} style={styles.optionImage} />
-      <Text style={styles.optionText}>{textOption}</Text>
-    </View>
+      <Text style={[styles.optionText, isSelected ? styles.selectedText : {}]}>
+        {textOption}
+      </Text>
+    </Pressable>
   );
 };
 

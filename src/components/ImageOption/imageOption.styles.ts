@@ -20,6 +20,14 @@ const styles = StyleSheet.create({
   optionText: {
     fontSize: 20,
     fontWeight: 'bold' // 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'
+  },
+  selectedContainer: {
+    backgroundColor: '#DDF4FE',
+    borderColor: '#81D5FE'
+  },
+  selectedText: {
+    color: '#81D5FE',
+    fontWeight: 'bold'
   }
 });
 
